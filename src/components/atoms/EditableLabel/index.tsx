@@ -3,7 +3,6 @@ import {
   FocusEventHandler,
   KeyboardEventHandler,
   useCallback,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -11,14 +10,12 @@ import {
 import "./index.css";
 
 export interface EditableLabelProps {
-  title: string;
+  text: string;
+  setText: (title: string) => void;
 }
 
-export const EditableLabel: FC<EditableLabelProps> = ({
-  title: initialTitle,
-}) => {
+export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
   const [mode, setMode] = useState<"view" | "edit">("view");
-  const [title, setTitle] = useState(initialTitle);
   const divElementRef = useRef<HTMLDivElement>(
     (null as unknown) as HTMLDivElement
   );
@@ -47,11 +44,11 @@ export const EditableLabel: FC<EditableLabelProps> = ({
     setMode("view");
     const { innerText } = divElementRef.current;
     if (innerText === "") {
-      divElementRef.current.innerText = title;
+      divElementRef.current.innerText = text;
     } else {
-      setTitle(innerText);
+      setText(innerText);
     }
-  }, [title]);
+  }, [text]);
 
   const handleKeyUp = useCallback<KeyboardEventHandler<HTMLDivElement>>(
     (event) => {
@@ -61,7 +58,7 @@ export const EditableLabel: FC<EditableLabelProps> = ({
         finishEditing();
       }
     },
-    [title]
+    [text]
   );
 
   const handleBlur = useCallback<FocusEventHandler<HTMLDivElement>>(
@@ -81,7 +78,7 @@ export const EditableLabel: FC<EditableLabelProps> = ({
       contentEditable={mode === "edit"}
       ref={divElementRef}
     >
-      {title}
+      {text}
     </div>
   );
 };
