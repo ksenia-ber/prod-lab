@@ -21,15 +21,3 @@ export const Secondary = ButtonStory.bind({});
 Secondary.args = {
   label: "Button",
 };
-
-export const Large = ButtonStory.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
-};
-
-export const Small = ButtonStory.bind({});
-Small.args = {
-  size: "small",
-  label: "Button",
-};
