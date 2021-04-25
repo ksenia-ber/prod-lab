@@ -1,7 +1,7 @@
+import { action } from "@storybook/addon-actions";
 import { Story, Meta } from "@storybook/react";
 import { TaskLabel } from ".";
 import { TaskContext, TaskContextType } from "../../../contexts/TaskContext";
-import { noop } from "../../../functions/noop";
 
 export default {
   title: "components/molecules/TaskLabel",
@@ -17,5 +17,5 @@ const TaskLabelStory: Story<TaskContextType> = ({ title, setTitle }) => (
 export const Example = TaskLabelStory.bind({});
 Example.args = {
   title: "Task",
-  setTitle: noop,
+  setTitle: action("setTitle"),
 };

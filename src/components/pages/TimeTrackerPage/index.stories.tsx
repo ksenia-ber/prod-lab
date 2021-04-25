@@ -1,7 +1,7 @@
+import { action } from "@storybook/addon-actions";
 import { Story, Meta } from "@storybook/react";
 import { TimeTrackerPage } from ".";
 import { TimerContext, TimerContextType } from "../../../contexts/TimerContext";
-import { noop } from "../../../functions/noop";
 
 export default {
   title: "components/pages/TimeTrackerPage",
@@ -20,7 +20,7 @@ Idle.args = {
   minutes: 0,
   hours: 0,
   status: "idle",
-  start: noop,
+  start: action("start"),
 };
 
 export const Started = TimeTrackerPageStory.bind({});
@@ -29,8 +29,8 @@ Started.args = {
   minutes: 0,
   hours: 0,
   status: "started",
-  pause: noop,
-  stop: noop,
+  pause: action("pause"),
+  stop: action("stop"),
 };
 
 export const Paused = TimeTrackerPageStory.bind({});
@@ -39,8 +39,8 @@ Paused.args = {
   minutes: 0,
   hours: 0,
   status: "paused",
-  resume: noop,
-  stop: noop,
+  resume: action("resume"),
+  stop: action("stop"),
 };
 
 export const Stopped = TimeTrackerPageStory.bind({});
@@ -49,5 +49,5 @@ Stopped.args = {
   minutes: 0,
   hours: 0,
   status: "stopped",
-  start: noop,
+  start: action("start"),
 };
