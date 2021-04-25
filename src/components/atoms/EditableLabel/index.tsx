@@ -48,7 +48,7 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
     } else {
       setText(innerText);
     }
-  }, [text]);
+  }, [text, setText]);
 
   const handleKeyUp = useCallback<KeyboardEventHandler<HTMLDivElement>>(
     (event) => {
@@ -58,12 +58,12 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
         finishEditing();
       }
     },
-    []
+    [finishEditing]
   );
 
   const handleBlur = useCallback<FocusEventHandler<HTMLDivElement>>(
     finishEditing,
-    []
+    [finishEditing]
   );
 
   return (
