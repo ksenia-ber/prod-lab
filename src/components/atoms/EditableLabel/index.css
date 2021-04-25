@@ -10,6 +10,10 @@
   color: #979797;
 }
 
+.editable-label:focus {
+  outline: none;
+}
+
 .editable-label--edit {
   outline: none;
 }

@@ -46,7 +46,7 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
     }
 
     const { innerText } = divElementRef.current;
-    if (innerText === "") {
+    if (innerText.trim() === "") {
       divElementRef.current.innerText = text;
     } else {
       setText(innerText);
@@ -56,7 +56,6 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
   const handleKeyUp = useCallback<KeyboardEventHandler<HTMLDivElement>>(
     (event) => {
       if (event.code === "Enter") {
-        event.preventDefault();
         setMode("view");
         finishEditing();
       }
