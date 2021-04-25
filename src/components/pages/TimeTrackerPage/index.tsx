@@ -2,17 +2,26 @@ import { FC } from "react";
 import { useTaskContext } from "../../../contexts/TaskContext";
 import { useTimerContext } from "../../../contexts/TimerContext";
 import { Button } from "../../atoms/Button";
+import { EditableLabel } from "../../atoms/EditableLabel";
 import { Time } from "../../atoms/Time";
-import { TaskLabel } from "../../molecules/TaskLabel";
 
 export const TimeTrackerPage: FC = () => {
-  const { title } = useTaskContext();
+  const { title, setTitle } = useTaskContext();
   const { seconds, minutes, hours, ...timer } = useTimerContext();
 
   return (
     <div className="time-tracker">
-      <TaskLabel />
-      <Time seconds={seconds} minutes={minutes} hours={hours} />
+      {timer.status !== "stopped" && (
+        <>
+          <EditableLabel text={title} setText={setTitle} />
+          <Time
+            seconds={seconds}
+            minutes={minutes}
+            hours={hours}
+            size="large"
+          />
+        </>
+      )}
       {timer.status === "idle" && (
         <Button primary label="Start" onClick={timer.start} />
       )}
@@ -27,8 +36,16 @@ export const TimeTrackerPage: FC = () => {
       )}
       {timer.status === "stopped" && (
         <>
-          Well done! Today you spent {`${hours}:${minutes}:${seconds}`} on{" "}
-          {title}
+          <h1>Well done!</h1>
+          <p>Today you spent</p>
+          <Time
+            seconds={seconds}
+            minutes={minutes}
+            hours={hours}
+            size="small"
+          />
+          <p>on {title}</p>
+          <Button label="Back" onClick={timer.reset} />
         </>
       )}
     </div>
