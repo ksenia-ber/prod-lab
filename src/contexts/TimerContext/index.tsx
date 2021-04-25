@@ -86,7 +86,7 @@ export const reduceTimerContext = (
     }
 
     startDateRef.current = Date.now();
-    intervalRef.current = setInterval(() => {
+    intervalRef.current = window.setInterval(() => {
       setState((state) => ({
         ...state,
         ...addTimeUnits(state, timeToTimeUnits(1_000)),
@@ -138,7 +138,7 @@ export const reduceTimerContext = (
       throw new Error(`Cannot resume from status ${state.status}`);
     }
 
-    intervalRef.current = setInterval(() => {
+    intervalRef.current = window.setInterval(() => {
       setState((state) => ({
         ...state,
         ...addTimeUnits(state, timeToTimeUnits(1_000)),
