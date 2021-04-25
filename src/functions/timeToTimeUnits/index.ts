@@ -1,5 +1,3 @@
-import { clamp } from "../clamp";
-
 export interface TimeUnits {
   seconds: number;
   minutes: number;
