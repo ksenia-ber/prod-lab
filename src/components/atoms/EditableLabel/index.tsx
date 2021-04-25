@@ -58,7 +58,7 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
         finishEditing();
       }
     },
-    [text]
+    []
   );
 
   const handleBlur = useCallback<FocusEventHandler<HTMLDivElement>>(
@@ -76,6 +76,7 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
       onKeyUp={handleKeyUp}
       onBlur={handleBlur}
       contentEditable={mode === "edit"}
+      suppressContentEditableWarning
       ref={divElementRef}
     >
       {text}
