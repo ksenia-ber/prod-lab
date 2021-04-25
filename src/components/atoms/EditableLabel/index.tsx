@@ -16,9 +16,7 @@ export interface EditableLabelProps {
 
 export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
   const [mode, setMode] = useState<"view" | "edit">("view");
-  const divElementRef = useRef<HTMLDivElement>(
-    (null as unknown) as HTMLDivElement
-  );
+  const divElementRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -27,10 +25,10 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
       }
     };
 
-    divElementRef.current.addEventListener("keydown", handleKeyDown);
+    divElementRef.current?.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      divElementRef.current.removeEventListener("keydown", handleKeyDown);
+      divElementRef.current?.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -42,13 +40,18 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
 
   const finishEditing = useCallback(() => {
     setMode("view");
+
+    if (!divElementRef.current) {
+      return;
+    }
+
     const { innerText } = divElementRef.current;
     if (innerText === "") {
       divElementRef.current.innerText = text;
     } else {
       setText(innerText);
     }
-  }, [text]);
+  }, [text, setText]);
 
   const handleKeyUp = useCallback<KeyboardEventHandler<HTMLDivElement>>(
     (event) => {
@@ -58,12 +61,12 @@ export const EditableLabel: FC<EditableLabelProps> = ({ text, setText }) => {
         finishEditing();
       }
     },
-    []
+    [finishEditing]
   );
 
   const handleBlur = useCallback<FocusEventHandler<HTMLDivElement>>(
     finishEditing,
-    []
+    [finishEditing]
   );
 
   return (
