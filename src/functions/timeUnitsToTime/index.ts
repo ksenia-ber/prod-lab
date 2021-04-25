@@ -1,4 +1,4 @@
-import { TimeUnits } from "../getTimeUnits";
+import { TimeUnits } from "../timeToTimeUnits";
 
 export const timeUnitsToTime = ({
   seconds,
