@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable react-hooks/rules-of-hooks  */
+import { createContext, useContext, useEffect, useState } from "react";
 import { noop } from "../../functions/noop";
 import { ContextReducerParams } from "../ContextReducer";
 
@@ -17,7 +18,6 @@ export const TaskContext = createContext<TaskContextType>(
 );
 
 export const reduceTaskContext = (_: ContextReducerParams): TaskContextType => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [title, setTitle] = useState(DEFAULT_TASK_CONTEXT_VALUE.title);
 
   return { title, setTitle };
