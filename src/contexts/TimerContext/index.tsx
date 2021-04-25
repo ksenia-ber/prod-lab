@@ -54,10 +54,13 @@ export const TimerContext = createContext<TimerContextType>(
 export const reduceTimerContext = (
   _: ContextReducerParams
 ): TimerContextType => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [state, setState] = useState<TimerContextType>(
     DEFAULT_TIMER_CONTEXT_VALUE
   );
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const startDateRef = useRef<number>();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const intervalRef = useRef<number>();
 
   let start: VoidFunction;
@@ -65,6 +68,7 @@ export const reduceTimerContext = (
   let resume: VoidFunction;
   let stop: VoidFunction;
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   start = useCallback(() => {
     if (state.status !== "idle" && state.status !== "stopped") {
       throw new Error(`Cannot start from status ${state.status}`);
@@ -88,6 +92,7 @@ export const reduceTimerContext = (
     });
   }, [state]);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   stop = useCallback(() => {
     if (state.status !== "started" && state.status !== "paused") {
       throw new Error(`Cannot stop from status ${state.status}`);
@@ -104,6 +109,7 @@ export const reduceTimerContext = (
     }));
   }, [state]);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   pause = useCallback(() => {
     if (state.status !== "started") {
       throw new Error(`Cannot pause from status ${state.status}`);
@@ -120,6 +126,7 @@ export const reduceTimerContext = (
     }));
   }, [state]);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   resume = useCallback(() => {
     if (state.status !== "paused") {
       throw new Error(`Cannot resume from status ${state.status}`);
@@ -140,6 +147,7 @@ export const reduceTimerContext = (
     }));
   }, [state]);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     setState({
       seconds: 0,
