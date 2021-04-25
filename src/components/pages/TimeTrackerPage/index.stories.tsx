@@ -1,7 +1,12 @@
 import { action } from "@storybook/addon-actions";
 import { Story, Meta } from "@storybook/react";
 import { TimeTrackerPage } from ".";
-import { TimerContext, TimerContextType } from "../../../contexts/TimerContext";
+import { reduceTaskContext, TaskContext } from "../../../contexts/TaskContext";
+import {
+  reduceTimerContext,
+  TimerContext,
+  TimerContextType,
+} from "../../../contexts/TimerContext";
 
 export default {
   title: "components/pages/TimeTrackerPage",
@@ -49,5 +54,13 @@ Stopped.args = {
   minutes: 0,
   hours: 0,
   status: "stopped",
-  start: action("start"),
+  reset: action("reset"),
 };
+
+export const Real = () => (
+  <TaskContext.Provider value={reduceTaskContext({})}>
+    <TimerContext.Provider value={reduceTimerContext({})}>
+      <TimeTrackerPage />
+    </TimerContext.Provider>
+  </TaskContext.Provider>
+);
