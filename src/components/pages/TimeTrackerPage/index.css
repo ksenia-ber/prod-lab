@@ -1,0 +1,45 @@
+@font-face {
+  font-family: Varela Round;
+  src: url("../../../fonts/VarelaRound-Regular.ttf") format("truetype");
+}
+
+.time-tracker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-tracker-header {
+  text-align: center;
+  margin: 3em 0;
+}
+
+.time-tracker-header--stopped,
+.time-tracker-subheader--stopped,
+.task-title {
+  font-family: Varela Round;
+  font-weight: normal;
+  color: #979797;
+}
+
+.time-tracker-header--stopped {
+  font-size: 3em;
+}
+
+.task-title,
+.time-tracker-subheader--stopped {
+  font-size: 2em;
+}
+
+.button-container {
+  width: 100%;
+  margin: 3em 0;
+
+  display: flex;
+  justify-content: space-evenly;
+}
