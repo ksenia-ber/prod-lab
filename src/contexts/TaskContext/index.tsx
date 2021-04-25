@@ -16,7 +16,7 @@ export const TaskContext = createContext<TaskContextType>(
   DEFAULT_TASK_CONTEXT_VALUE
 );
 
-export const reduceTaskContext = (_: ContextReducerParams) => {
+export const reduceTaskContext = (_: ContextReducerParams): TaskContextType => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [title, setTitle] = useState(DEFAULT_TASK_CONTEXT_VALUE.title);
 
