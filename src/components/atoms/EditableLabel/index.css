@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Varela Round;
+  src: url("../../../fonts/VarelaRound-Regular.ttf") format("truetype");
+}
+
+.editable-label {
+  font-family: Varela Round;
+  font-weight: normal;
+  font-size: 3em;
+  color: #979797;
+}
+
+.editable-label--edit {
+  outline: none;
+}
