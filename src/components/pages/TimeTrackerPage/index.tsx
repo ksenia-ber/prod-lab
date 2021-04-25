@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import { useTaskContext } from "../../../contexts/TaskContext";
 import { useTimerContext } from "../../../contexts/TimerContext";
 import { Button } from "../../atoms/Button";
@@ -7,8 +7,15 @@ import { Time } from "../../atoms/Time";
 import "./index.css";
 
 export const TimeTrackerPage: FC = () => {
-  const { title, setTitle } = useTaskContext();
+  const { title, setTitle, resetTitle } = useTaskContext();
   const { seconds, minutes, hours, ...timer } = useTimerContext();
+
+  const handleStartAgain = useCallback(() => {
+    if (timer.status === "stopped") {
+      timer.reset();
+    }
+    resetTitle();
+  }, [timer, resetTitle]);
 
   return (
     <div className="time-tracker">
@@ -54,7 +61,7 @@ export const TimeTrackerPage: FC = () => {
           />
           <p className="task-title">on {title}</p>
           <div className="button-container">
-            <Button label="Back" onClick={timer.reset} />
+            <Button label="Start again" onClick={handleStartAgain} />
           </div>
         </>
       )}
