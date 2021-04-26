@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { ContextReducerParams } from "../ContextReducer";
 
 export type AuthContextType =
@@ -25,3 +25,5 @@ export const reduceAuthContext = (_: ContextReducerParams) => {
 
   return state;
 };
+
+export const useAuthContext = () => useContext(AuthContext);
