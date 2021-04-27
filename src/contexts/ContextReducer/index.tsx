@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { createContextReducer } from "../../functions/contextReducer";
+import { AuthContext, reduceAuthContext } from "../AuthContext";
 import { TaskContext, reduceTaskContext } from "../TaskContext";
 import { reduceTimerContext, TimerContext } from "../TimerContext";
 
@@ -15,6 +16,12 @@ const contextComposition: FC<ContextReducerParams>[] = [
   (props) => (
     <TimerContext.Provider
       value={reduceTimerContext(props)}
+      children={props.children}
+    />
+  ),
+  (props) => (
+    <AuthContext.Provider
+      value={reduceAuthContext(props)}
       children={props.children}
     />
   ),
