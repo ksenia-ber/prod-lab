@@ -1,0 +1,69 @@
+@font-face {
+  font-family: Varela Round;
+  src: url("../../../fonts/VarelaRound-Regular.ttf") format("truetype");
+}
+
+.intro-screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: Varela Round;
+  font-weight: normal;
+}
+.intro-screen--evening,
+.intro-screen--night {
+  mix-blend-mode: darken;
+  opacity: 0.95;
+}
+
+.intro-screen-title {
+  color: #fbf9f9;
+  font-size: 4em;
+  padding: 0.75em 1em;
+}
+.intro-screen--morning .intro-screen-title {
+  background-color: rgba(137, 160, 126, 0.85);
+}
+.intro-screen--afternoon .intro-screen-title {
+  background-color: rgba(122, 90, 59, 0.85);
+}
+.intro-screen--evening .intro-screen-title {
+  background-color: rgba(31, 73, 122, 0.85);
+}
+.intro-screen--night .intro-screen-title {
+  background-color: rgba(105, 105, 105, 0.85);
+}
+
+.intro-screen-subtitle {
+  color: #000;
+  font-size: 2em;
+}
+.intro-screen--evening .intro-screen-subtitle {
+  color: #fbf9f9;
+}
+.intro-screen--night .intro-screen-subtitle {
+  color: #fbf9f9;
+}
+
+.button-container {
+  width: 100%;
+  margin: 3em 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.button-container button {
+  margin: 0 1em;
+}
