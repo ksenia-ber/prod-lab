@@ -5,7 +5,7 @@ import { getIntroScreenBackgroundImage } from "../../../functions/getIntroScreen
 import { noop } from "../../../functions/noop";
 import { TimeOfDay } from "../../../functions/timeToTimeOfDay";
 import { Button } from "../../atoms/Button";
-import "./index.css";
+import classes from "./index.module.css";
 
 export interface IntroScreenPageProps {
   timeOfDay: TimeOfDay;
@@ -18,11 +18,11 @@ export const IntroScreenPage: FC<IntroScreenPageProps> = ({ timeOfDay }) => {
   return (
     <div
       className={[
-        "intro-screen",
-        timeOfDay === "morning" ? "intro-screen--morning" : undefined,
-        timeOfDay === "afternoon" ? "intro-screen--afternoon" : undefined,
-        timeOfDay === "evening" ? "intro-screen--evening" : undefined,
-        timeOfDay === "night" ? "intro-screen--night" : undefined,
+        classes.introScreen,
+        timeOfDay === "morning" ? classes.morning : undefined,
+        timeOfDay === "afternoon" ? classes.afternoon : undefined,
+        timeOfDay === "evening" ? classes.evening : undefined,
+        timeOfDay === "night" ? classes.night : undefined,
       ]
         .filter(Boolean)
         .join(" ")}
@@ -30,11 +30,11 @@ export const IntroScreenPage: FC<IntroScreenPageProps> = ({ timeOfDay }) => {
     >
       {authContext.status === "loggedIn" && (
         <>
-          <p className="intro-screen-title">
+          <p className={classes.title}>
             Good {timeOfDay}, {authContext.name}
           </p>
-          <p className="intro-screen-subtitle">What do you want to do today?</p>
-          <div className="button-container">
+          <p className={classes.subtitle}>What do you want to do today?</p>
+          <div className={classes.buttonContainer}>
             <Button
               primary
               label="Track time"
@@ -52,8 +52,8 @@ export const IntroScreenPage: FC<IntroScreenPageProps> = ({ timeOfDay }) => {
       )}
       {authContext.status === "loggedOut" && (
         <>
-          <p className="intro-screen-title">Good {timeOfDay}</p>
-          <p className="intro-screen-subtitle">Welcome to ProdLab</p>
+          <p className={classes.title}>Good {timeOfDay}</p>
+          <p className={classes.subtitle}>Welcome to ProdLab</p>
         </>
       )}
     </div>

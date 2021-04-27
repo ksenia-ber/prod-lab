@@ -3,7 +3,7 @@
   src: url("../../../fonts/VarelaRound-Regular.ttf") format("truetype");
 }
 
-.intro-screen {
+.introScreen {
   position: absolute;
   top: 0;
   right: 0;
@@ -21,42 +21,42 @@
   font-family: Varela Round;
   font-weight: normal;
 }
-.intro-screen--evening,
-.intro-screen--night {
+.evening,
+.night {
   mix-blend-mode: darken;
   opacity: 0.95;
 }
 
-.intro-screen-title {
+.title {
   color: #fbf9f9;
   font-size: 4em;
   padding: 0.75em 1em;
 }
-.intro-screen--morning .intro-screen-title {
+.morning .title {
   background-color: rgba(137, 160, 126, 0.85);
 }
-.intro-screen--afternoon .intro-screen-title {
+.afternoon .title {
   background-color: rgba(122, 90, 59, 0.85);
 }
-.intro-screen--evening .intro-screen-title {
+.evening .title {
   background-color: rgba(31, 73, 122, 0.85);
 }
-.intro-screen--night .intro-screen-title {
+.night .title {
   background-color: rgba(105, 105, 105, 0.85);
 }
 
-.intro-screen-subtitle {
+.subtitle {
   color: #000;
   font-size: 2em;
 }
-.intro-screen--evening .intro-screen-subtitle {
+.evening .subtitle {
   color: #fbf9f9;
 }
-.intro-screen--night .intro-screen-subtitle {
+.night .subtitle {
   color: #fbf9f9;
 }
 
-.button-container {
+.buttonContainer {
   width: 100%;
   margin: 3em 0;
 
@@ -64,6 +64,6 @@
   justify-content: center;
 }
 
-.button-container button {
+.buttonContainer button {
   margin: 0 1em;
 }
