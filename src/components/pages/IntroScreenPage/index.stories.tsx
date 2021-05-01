@@ -59,3 +59,9 @@ Night.args = {
   name: "Alex",
   timeOfDay: "night",
 };
+
+export const Real = IntroScreenPageStory.bind({});
+Real.args = {
+  status: "loggedOut",
+  timeOfDay: timeToTimeOfDay(new Date().getTime()),
+};
