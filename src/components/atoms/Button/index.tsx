@@ -2,21 +2,10 @@ import { FC } from "react";
 import "./index.css";
 
 export interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
+  className?: string;
   primary?: boolean;
-  /**
-   * What background color to use
-   */
   backgroundColor?: string;
-  /**
-   * Button contents
-   */
   label: string;
-  /**
-   * Optional click handler
-   */
   onClick?: VoidFunction;
 }
 
@@ -27,6 +16,7 @@ export const Button: FC<ButtonProps> = ({
   primary = false,
   backgroundColor,
   label,
+  className,
   ...props
 }) => (
   <button
@@ -34,6 +24,7 @@ export const Button: FC<ButtonProps> = ({
     className={[
       "button",
       primary ? "button--primary" : "button--secondary",
+      className,
     ].join(" ")}
     style={{ backgroundColor }}
     {...props}
