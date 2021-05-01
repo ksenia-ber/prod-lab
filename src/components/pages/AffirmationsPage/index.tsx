@@ -1,4 +1,5 @@
 import { FC } from "react";
+import classes from "./index.module.css";
 
 export interface AffirmationsPageProps {}
 
