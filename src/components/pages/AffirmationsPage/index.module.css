@@ -1,0 +1,12 @@
+.affirmations {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-image: url(mountains.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(4px);
+}
