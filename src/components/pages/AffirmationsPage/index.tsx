@@ -19,8 +19,8 @@ export const AffirmationsPage: FC<AffirmationsPageProps> = () => {
     <div className={classes.affirmations}>
       <div className={classes.background}></div>
       <div className={classes.generator}>
-        <div className={classes.body}>
-          <p>{text}</p>
+        <div className={classes.content}>
+          <p className={classes.text}>{text}</p>
           <Button
             className={classes.button}
             primary
