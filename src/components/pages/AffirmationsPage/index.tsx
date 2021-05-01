@@ -1,6 +1,7 @@
 import { FC, useCallback, useState } from "react";
 import { AFFIRMATION_LIST } from "../../../constants/AFFIRMATION_LIST";
 import { randomiser } from "../../../functions/randomiser";
+import { Button } from "../../atoms/Button";
 import classes from "./index.module.css";
 
 export interface AffirmationsPageProps {}
@@ -17,8 +18,17 @@ export const AffirmationsPage: FC<AffirmationsPageProps> = () => {
   return (
     <div className={classes.affirmations}>
       <div className={classes.background}></div>
-      <p>{text}</p>
-      <input type="button" value="Show new" onClick={handleClick} />
+      <div className={classes.generator}>
+        <div className={classes.body}>
+          <p>{text}</p>
+          <Button
+            className={classes.button}
+            primary
+            label="Show new"
+            onClick={handleClick}
+          />
+        </div>
+      </div>
     </div>
   );
 };
