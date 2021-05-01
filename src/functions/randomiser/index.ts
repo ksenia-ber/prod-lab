@@ -1,5 +1,5 @@
 export interface Randomiser<T> {
-  current: T;
+  getCurrent(): T;
   next(): T;
 }
 
@@ -17,14 +17,12 @@ export const randomiser = <T>(list: T[]): Randomiser<T> => {
   };
 
   const next = (): T => {
-    currentIndex++;
+    currentIndex = (currentIndex + 1) % list.length;
     return getCurrent();
   };
 
   return {
-    get current() {
-      return getCurrent();
-    },
+    getCurrent,
     next,
   };
 };
