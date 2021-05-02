@@ -2,16 +2,21 @@ import { FC } from "react";
 import { GRAY_COLOR } from "../../../constants/GRAY_COLOR";
 import { useAuthContext } from "../../../contexts/AuthContext";
 import { getIntroScreenBackgroundImage } from "../../../functions/getIntroScreenBackgroundImage";
-import { noop } from "../../../functions/noop";
 import { TimeOfDay } from "../../../functions/timeToTimeOfDay";
 import { Button } from "../../atoms/Button";
 import classes from "./index.module.css";
 
 export interface IntroScreenPageProps {
   timeOfDay: TimeOfDay;
+  goToTimeTrackerPage: VoidFunction;
+  goToAffirmationsPage: VoidFunction;
 }
 
-export const IntroScreenPage: FC<IntroScreenPageProps> = ({ timeOfDay }) => {
+export const IntroScreenPage: FC<IntroScreenPageProps> = ({
+  timeOfDay,
+  goToTimeTrackerPage,
+  goToAffirmationsPage,
+}) => {
   const authContext = useAuthContext();
   const backgroundImage = getIntroScreenBackgroundImage(timeOfDay);
 
@@ -39,13 +44,13 @@ export const IntroScreenPage: FC<IntroScreenPageProps> = ({ timeOfDay }) => {
               primary
               label="Track time"
               backgroundColor={GRAY_COLOR}
-              onClick={noop}
+              onClick={goToTimeTrackerPage}
             />
             <Button
               primary
               label="Read affirmations"
               backgroundColor={GRAY_COLOR}
-              onClick={noop}
+              onClick={goToAffirmationsPage}
             />
           </div>
         </>

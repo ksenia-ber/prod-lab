@@ -16,7 +16,7 @@
   background-image: url(mountains.png);
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(4px);
+  filter: blur(4px) opacity(50%);
 
   z-index: -1;
 }
