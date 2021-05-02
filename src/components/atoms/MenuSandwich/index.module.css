@@ -1,0 +1,11 @@
+.sandwich {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.sandwich div {
+  width: 36px;
+  height: 4px;
+  background-color: #979797;
+  margin-bottom: 6px;
+}
