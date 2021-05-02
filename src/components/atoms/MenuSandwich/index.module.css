@@ -1,12 +1,11 @@
 .sandwich {
   display: inline-block;
-  padding: 0.5em;
   cursor: pointer;
 }
 
 .sandwich div {
-  width: 3.5em;
-  height: 0.5em;
-  background-color: black;
-  margin: 0.6em 0;
+  width: 36px;
+  height: 4px;
+  background-color: #979797;
+  margin-bottom: 6px;
 }

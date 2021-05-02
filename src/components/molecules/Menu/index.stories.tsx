@@ -1,6 +1,5 @@
 import { Story, Meta } from "@storybook/react";
 import { Menu, MenuProps } from ".";
-import classes from "index.module.css";
 
 export default {
   title: "components/molecules/Menu",
