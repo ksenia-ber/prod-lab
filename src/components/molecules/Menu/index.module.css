@@ -7,7 +7,6 @@
   font-family: Varela Round;
   font-weight: 400;
   font-size: 1em;
-  color: #696969;
 }
 
 .button {
@@ -46,4 +45,8 @@
 .closed .slidingPanel {
   visibility: hidden;
   transform: translateX(20em);
+}
+
+.link {
+  color: #696969;
 }

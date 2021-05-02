@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { Link } from "react-router-dom";
 import { MenuSandwich } from "../../atoms/MenuSandwich";
 import classes from "./index.module.css";
 
@@ -27,9 +28,29 @@ export const Menu = () => {
     >
       <MenuSandwich className={classes.button} onClick={handleClick} />
       <div className={classes.slidingPanel}>
-        <p>Intro Screen</p>
-        <p>Time Tracker</p>
-        <p>Affirmations</p>
+        <p>
+          <Link className={classes.link} to="/" onClick={handleClick}>
+            Intro Screen
+          </Link>
+        </p>
+        <p>
+          <Link
+            className={classes.link}
+            to="/time-tracker"
+            onClick={handleClick}
+          >
+            Time Tracker
+          </Link>
+        </p>
+        <p>
+          <Link
+            className={classes.link}
+            to="/affirmations"
+            onClick={handleClick}
+          >
+            Affirmations
+          </Link>
+        </p>
       </div>
     </div>
   );
