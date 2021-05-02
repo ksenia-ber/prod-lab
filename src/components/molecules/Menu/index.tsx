@@ -1,5 +1,7 @@
 import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
+import { AFFIRMATIONS_PAGE } from "../../../constants/AFFIRMATIONS_PAGE";
+import { TIME_TRACKER_PAGE } from "../../../constants/TIME_TRACKER_PAGE";
 import { MenuSandwich } from "../../atoms/MenuSandwich";
 import classes from "./index.module.css";
 
@@ -36,7 +38,7 @@ export const Menu = () => {
         <p>
           <Link
             className={classes.link}
-            to="/time-tracker"
+            to={TIME_TRACKER_PAGE}
             onClick={handleClick}
           >
             Time Tracker
@@ -45,7 +47,7 @@ export const Menu = () => {
         <p>
           <Link
             className={classes.link}
-            to="/affirmations"
+            to={AFFIRMATIONS_PAGE}
             onClick={handleClick}
           >
             Affirmations
