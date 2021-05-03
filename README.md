@@ -3,7 +3,7 @@
 Simple website with time tracker and affirmations generator to boost your productivity. 
 Created by ✨@beraliv and @ksenia-ber✨
 
-##🖥 Technologies
+## 🖥 Technologies
 Project is created with:
 - React
 - Typescript
